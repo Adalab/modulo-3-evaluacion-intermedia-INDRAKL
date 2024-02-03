@@ -1,3 +1,1 @@
-# Proyecto plantilla
-
-¡Rellena este fichero!
+# Busca tu frase favorita de Friends
