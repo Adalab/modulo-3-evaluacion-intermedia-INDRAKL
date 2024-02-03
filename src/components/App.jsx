@@ -4,6 +4,7 @@ import Filters from "./Filters";
 import Header from "./Header";
 import QuotesList from "./QuotesList";
 import DataQuotes from "../data/quotes.json";
+import Addquote from "./Addquote";
 
 function App() {
   const [quotes, SetQuotes] = useState(DataQuotes);
@@ -22,6 +23,7 @@ function App() {
       <main>
         <Filters handlefilterQuote={handlefilterQuote}></Filters>
         <QuotesList quotes={filteredQuotes}></QuotesList>
+        <Addquote></Addquote>
       </main>
     </div>
   );

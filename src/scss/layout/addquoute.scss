@@ -1,0 +1,11 @@
+.addquote {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  &__text {
+    font-size: 30px;
+    color: $green;
+  }
+}
