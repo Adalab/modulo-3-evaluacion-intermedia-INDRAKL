@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 function QuoteItem({ quote, character }) {
   return (
     <>
-      {quote}
-      {character}
+      {quote} - <span className="character">{character}</span>
     </>
   );
 }
