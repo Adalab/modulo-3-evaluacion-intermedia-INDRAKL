@@ -7,12 +7,21 @@ import DataQuotes from "../data/quotes.json";
 
 function App() {
   const [quotes, SetQuotes] = useState(DataQuotes);
+  const [filterQuote, setFilterQuote] = useState("");
+
+  const handlefilterQuote = (filterValue) => {
+    setFilterQuote(filterValue);
+  };
+  const filteredQuotes = quotes.filter((quote) =>
+    quote.quote.toLowerCase().includes(filterQuote.toLowerCase())
+  );
+
   return (
     <div>
       <Header></Header>
       <main>
-        <Filters></Filters>
-        <QuotesList quotes={quotes}></QuotesList>
+        <Filters handlefilterQuote={handlefilterQuote}></Filters>
+        <QuotesList quotes={filteredQuotes}></QuotesList>
       </main>
     </div>
   );

@@ -1,8 +1,14 @@
-function Filters() {
+function Filters({ handlefilterQuote }) {
+  const handleInput = (event) => {
+    console.log(event.currentTarget.value);
+
+    handlefilterQuote(event.currentTarget.value);
+  };
   return (
     <div className="filters">
       <form className="filters__quote">
-        Filtrar por frase <input className="filter" type="text" />
+        Filtrar por frase{" "}
+        <input className="filter" type="text" onInput={handleInput} />
       </form>
       <form
         action="/procesar_formulario"

@@ -7,11 +7,7 @@ function QuotesList({ quotes }) {
       <QuoteItem quote={quote.quote} character={quote.character}></QuoteItem>
     </li>
   ));
-  return (
-    <ul className="quoteslist">
-      <li>{htmlQuotes}</li>
-    </ul>
-  );
+  return <ul className="quoteslist">{htmlQuotes}</ul>;
 }
 
 QuoteItem.PropTypes = {
