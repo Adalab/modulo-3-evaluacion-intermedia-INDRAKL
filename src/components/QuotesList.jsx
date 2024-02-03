@@ -3,12 +3,12 @@ import QuoteItem from "./QuoteItem";
 
 function QuotesList({ quotes }) {
   const htmlQuotes = quotes.map((quote, idx) => (
-    <li key={idx}>
+    <li key={idx} className="quoteitem">
       <QuoteItem quote={quote.quote} character={quote.character}></QuoteItem>
     </li>
   ));
   return (
-    <ul>
+    <ul className="quoteslist">
       <li>{htmlQuotes}</li>
     </ul>
   );

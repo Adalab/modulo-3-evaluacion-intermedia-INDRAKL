@@ -2,7 +2,7 @@ function Filters() {
   return (
     <div className="filters">
       <form className="filters__quote">
-        <input className="filter" type="text" placeholder="Filtrar por frase" />
+        Filtrar por frase <input className="filter" type="text" />
       </form>
       <form
         action="/procesar_formulario"
