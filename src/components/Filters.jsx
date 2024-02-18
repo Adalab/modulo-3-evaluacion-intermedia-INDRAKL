@@ -1,14 +1,21 @@
-function Filters({ handlefilterQuote }) {
-  const handleInput = (event) => {
-    console.log(event.currentTarget.value);
+import React from "react";
 
-    handlefilterQuote(event.currentTarget.value);
-  };
+function Filters({
+  filterQuote,
+  selectedCharacter,
+  handleFilterQuote,
+  handleCharacterChange,
+}) {
   return (
     <div className="filters">
       <form className="filters__quote">
         Filtrar por frase{" "}
-        <input className="filter" type="text" onInput={handleInput} />
+        <input
+          className="filter"
+          type="text"
+          value={filterQuote}
+          onChange={(event) => handleFilterQuote(event.target.value)}
+        />
       </form>
       <form
         action="/procesar_formulario"
@@ -16,17 +23,23 @@ function Filters({ handlefilterQuote }) {
         className="filters__characters"
       >
         <label htmlFor="personajes">Filtrar por personaje</label>
-        <select id="opciones" name="opcion">
-          <option>Todos</option>
-          <option>Joe</option>
-          <option>Ross</option>
-          <option>Mónica</option>
-          <option>Rachel</option>
-          <option>Phoebe</option>
-          <option>Chandler</option>
+        <select
+          id="opciones"
+          name="opcion"
+          value={selectedCharacter}
+          onChange={handleCharacterChange}
+        >
+          <option value="Todos">Todos</option>
+          <option value="Joe">Joe</option>
+          <option value="Ross">Ross</option>
+          <option value="Mónica">Mónica</option>
+          <option value="Rachel">Rachel</option>
+          <option value="Phoebe">Phoebe</option>
+          <option value="Chandler">Chandler</option>
         </select>
       </form>
     </div>
   );
 }
+
 export default Filters;
