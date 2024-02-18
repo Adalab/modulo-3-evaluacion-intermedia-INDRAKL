@@ -11,17 +11,23 @@ function App() {
   const [filterQuote, setFilterQuote] = useState("");
   const [selectedCharacter, setSelectedCharacter] = useState("Todos");
 
-  const handleFilterQuote = (filterValue) => {
-    setFilterQuote(filterValue);
+  const handleFilter = (filterName, value) => {
+    if (filterName === "quote") {
+      setFilterQuote(value.toLowerCase());
+    } else if (filterName === "character") {
+      setSelectedCharacter(value);
+    }
   };
 
-  const handleCharacterChange = (event) => {
-    setSelectedCharacter(event.target.value);
-  };
-
-  const filteredQuotes = quotes.filter((quote) =>
-    quote.quote.toLowerCase().includes(filterQuote.toLowerCase())
-  );
+  const filteredQuotes = quotes
+    .filter((quote) => quote.quote.toLowerCase().includes(filterQuote))
+    .filter((quote) => {
+      if (selectedCharacter === "Todos") {
+        return true;
+      } else {
+        return quote.character === selectedCharacter;
+      }
+    });
 
   return (
     <div>
@@ -30,8 +36,7 @@ function App() {
         <Filters
           filterQuote={filterQuote}
           selectedCharacter={selectedCharacter}
-          handleFilterQuote={handleFilterQuote}
-          handleCharacterChange={handleCharacterChange}
+          handleFilter={handleFilter}
         />
         <QuotesList quotes={filteredQuotes} />
         <Addquote />

@@ -10,7 +10,8 @@ function QuotesList({ quotes }) {
   return <ul className="quoteslist">{htmlQuotes}</ul>;
 }
 
-QuoteItem.PropTypes = {
-  quotes: PropTypes.array,
+QuotesList.propTypes = {
+  quotes: PropTypes.array.isRequired,
 };
+
 export default QuotesList;

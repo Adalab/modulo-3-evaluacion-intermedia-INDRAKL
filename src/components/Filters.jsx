@@ -1,11 +1,12 @@
 import React from "react";
 
-function Filters({
-  filterQuote,
-  selectedCharacter,
-  handleFilterQuote,
-  handleCharacterChange,
-}) {
+function Filters({ filterQuote, selectedCharacter, handleFilter }) {
+  const handleInputCharacter = (event) => {
+    handleFilter("character", event.currentTarget.value);
+  };
+  const handleInputQuote = (event) => {
+    handleFilter("quote", event.currentTarget.value);
+  };
   return (
     <div className="filters">
       <form className="filters__quote">
@@ -14,7 +15,7 @@ function Filters({
           className="filter"
           type="text"
           value={filterQuote}
-          onChange={(event) => handleFilterQuote(event.target.value)}
+          onChange={handleInputQuote}
         />
       </form>
       <form
@@ -27,12 +28,12 @@ function Filters({
           id="opciones"
           name="opcion"
           value={selectedCharacter}
-          onChange={handleCharacterChange}
+          onChange={handleInputCharacter}
         >
           <option value="Todos">Todos</option>
-          <option value="Joe">Joe</option>
+          <option value="Joey">Joey</option>
           <option value="Ross">Ross</option>
-          <option value="Mónica">Mónica</option>
+          <option value="Mónica">Monica</option>
           <option value="Rachel">Rachel</option>
           <option value="Phoebe">Phoebe</option>
           <option value="Chandler">Chandler</option>
