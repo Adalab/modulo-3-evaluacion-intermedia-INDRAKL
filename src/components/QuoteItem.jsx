@@ -12,4 +12,5 @@ QuoteItem.propTypes = {
   quote: PropTypes.string,
   character: PropTypes.string,
 };
+
 export default QuoteItem;

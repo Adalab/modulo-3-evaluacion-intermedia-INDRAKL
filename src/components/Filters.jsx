@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 function Filters({ filterQuote, selectedCharacter, handleFilter }) {
   const handleInputCharacter = (event) => {
@@ -42,5 +42,11 @@ function Filters({ filterQuote, selectedCharacter, handleFilter }) {
     </div>
   );
 }
+
+Filters.propTypes = {
+  filterQuote: PropTypes.string,
+  selectedCharacter: PropTypes.string,
+  handleFilter: PropTypes.func,
+};
 
 export default Filters;
